@@ -141,13 +141,13 @@ class AmadeusNodeBuilder:
         repo_dir = Path(self.repo_dir).resolve()
         
         if not (repo_dir / "build.Dockerfile").exists():
-            candidate = repo_dir / "node"
+            candidate = repo_dir / "ex"
             if (candidate / "build.Dockerfile").exists():
                 repo_dir = candidate
                 self.repo_dir = repo_dir
-                Logger.info(f"Using build.Dockerfile from node/ subdirectory: {repo_dir}")
+                Logger.info(f"Using build.Dockerfile from ex/ subdirectory: {repo_dir}")
             else:
-                Logger.error("build.Dockerfile not found in repo root or node/ subdirectory")
+                Logger.error("build.Dockerfile not found in repo root or ex/ subdirectory")
                 sys.exit(1)
         
         Logger.ok("Repository ready")
